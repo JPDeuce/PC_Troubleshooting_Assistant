@@ -5,8 +5,11 @@
 **Project ideas suggested by AI:**
 
 - **PC Troubleshooting Assistant** — asks questions about symptoms such as no power, network problems, slow performance, or application errors, then recommends troubleshooting steps based on predefined rules.
+  - **Rule-Based Approach:** The system maps each reported symptom to a rule; for example, IF there is no power THEN check the power cable, outlet, and power button.
 - **Cybersecurity Incident Triage Assistant** — asks about symptoms such as suspicious login activity, malware alerts, or unusual network traffic and provides basic recommended actions based on predefined rules.
+  - **Rule-Based Approach:** The system matches each reported symptom to a rule; for example, IF unusual login activity is reported THEN recommend changing passwords and enabling multi-factor authentication.
 - **Vehicle Maintenance Troubleshooting Assistant** — asks about symptoms such as warning lights, noises, starting problems, or overheating and suggests possible causes/actions.
+  - **Rule-Based Approach:** The system matches each reported symptom to a rule; for example, IF the engine starts but the car overheats THEN recommend checking the coolant level and radiator.
 
 **Chosen idea: PC Troubleshooting Assistant**
 
