@@ -3,6 +3,9 @@
 A rule-based command-line assistant that asks about common computer problems
 and recommends troubleshooting steps based on the user's answers.
 
+> Assignment deliverables (ideas, rules, sample I/O, reflection) are in
+> [ASSIGNMENT_WRITEUP.md](ASSIGNMENT_WRITEUP.md).
+
 ## Rules
 
 | # | Problem | Recommendation |
