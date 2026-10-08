@@ -1,0 +1,2 @@
+# No external dependencies required.
+# The PC Troubleshooting Assistant uses only the Python standard library.
