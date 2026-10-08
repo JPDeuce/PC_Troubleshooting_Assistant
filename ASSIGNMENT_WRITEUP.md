@@ -110,4 +110,4 @@ I didn't really encounter too many major issues while prompting the AI to assist
 
 One challenge I noticed was that keyword matching is not perfect. For example, when I entered "Email isn't working," the program did not recognize it because email was not one of the keywords. Changing the description to "Email application isn't working" allowed it to match the application rule. This showed me that a rule-based system can work well for common problems, but it depends heavily on how the rules and keywords are defined. Testing different inputs helped me find these limitations and improve the system without making the rules overly complicated.
 
-If I continued working on the project, I would probably add more rules and keywords to make it recognize a wider range of common computer problems. I could also add more follow-up questions to make the recommendations more specific.
+This also showed me one of the differences between a rule-based system and modern machine learning. A rule-based system only knows the conditions and responses that are programmed into it, while a machine learning system could potentially recognize patterns from a much larger amount of data.
