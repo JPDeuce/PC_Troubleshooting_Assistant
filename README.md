@@ -20,4 +20,17 @@ and recommends troubleshooting steps based on the user's answers.
 python pc_troubleshooting_assistant.py
 ```
 
+Enter a number (1-6) or describe the problem in your own words — keyword
+matching maps your description to a rule. Each rule asks one follow-up
+question to tailor the recommendation.
+
 Requires Python 3.8+. No external packages needed (see `requirements.txt`).
+
+## Testing
+
+```bash
+python test_assistant.py
+```
+
+Covers all six rules, both follow-up answers, keyword matching, invalid
+input handling, and the quit options.
