@@ -7,7 +7,7 @@ and recommends troubleshooting steps based on the user's answers.
 
 | # | Problem | Recommendation |
 |---|---------|----------------|
-| 1 | Computer does not turn on | Check power cable, outlet, and power button |
+| 1 | Computer does not turn on, or screen is black/flickering | Check power cable, outlet, power button, and monitor/video cable |
 | 2 | No internet connection | Check network connection, restart router/modem, reconnect to Wi-Fi/Ethernet |
 | 3 | Slow performance | Close unnecessary programs, check storage, restart the computer |
 | 4 | Application not working | Restart the app, check for updates, restart the computer |

@@ -59,10 +59,14 @@ def test_keyword_matching() -> None:
     """Free-form descriptions are matched to the correct rule."""
     expectations = {
         "my computer won't turn on": "Recommendation (Power problem)",
+        "the screen is flickering": "Recommendation (Power problem)",
+        "my laptop battery won't charge": "Recommendation (Power problem)",
         "the internet is down": "Recommendation (Internet connection)",
         "everything has gotten really slow": "Recommendation (Slow performance)",
         "my web browser app keeps crashing": "Recommendation (Application problem)",
         "i'm seeing weird pop-ups and warnings": "Recommendation (Pop-ups or security warnings)",
+        "windows shows a blue screen": "Recommendation (No recognized problem)",
+        "i need to update my drivers": "Recommendation (No recognized problem)",
     }
     for description, expected in expectations.items():
         output = run(f"{description}\ny\nn\n")

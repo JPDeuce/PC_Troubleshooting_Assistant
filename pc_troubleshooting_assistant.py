@@ -56,10 +56,18 @@ def match_keywords(text: str) -> Optional[str]:
     """
     text = text.lower()
 
-    # Rule 1 keywords: the machine is dead / won't turn on.
-    if any(word in text for word in ("power", "turn on", "turns on", "won't start",
-                                     "wont start", "doesn't start", "does not start",
-                                     "dead", "no lights")):
+    # Rule 6 keywords checked FIRST: "blue screen" would otherwise match
+    # Rule 1's display keywords ("screen").
+    if any(word in text for word in ("blue screen", "bsod")):
+        return "6"
+    # Rule 1 keywords: the machine is dead, won't turn on, or has a
+    # display/power problem (black, blank, or flickering screen, battery).
+    elif any(word in text for word in ("power", "turn on", "turns on", "won't start",
+                                       "wont start", "doesn't start", "does not start",
+                                       "dead", "no lights", "screen", "monitor",
+                                       "display", "no signal", "blank", "flicker",
+                                       "flickering", "battery", "charger",
+                                       "plugged in")):
         return "1"
     # Rule 2 keywords: connectivity is down.
     elif any(word in text for word in ("internet", "wifi", "wi-fi", "network",
@@ -77,6 +85,9 @@ def match_keywords(text: str) -> Optional[str]:
     elif any(word in text for word in ("pop-up", "popup", "pop up", "virus",
                                        "malware", "warning", "scam", "security")):
         return "5"
+    # Rule 6 keywords: OS/driver-level problems that don't fit above.
+    elif any(word in text for word in ("driver", "error")):
+        return "6"
     # No keywords matched: no rule applies, so the caller will treat
     # this as invalid input and ask again.
     else:
@@ -88,8 +99,9 @@ def get_recommendation(choice: str, answer: str) -> str:
 
     Each rule is one branch of the if-elif-else chain:
 
-    Rule 1 - Power problem: the computer does not turn on, so the advice
-             focuses on the physical power supply (cable, outlet, button).
+    Rule 1 - Power/display problem: the computer does not turn on or the
+             screen is black/flickering, so the advice covers the power
+             supply (cable, outlet, button) and the monitor/video cable.
     Rule 2 - Internet connection: the computer is on but offline, so the
              advice covers the network path (connection, router, Wi-Fi).
     Rule 3 - Slow performance: the advice targets resource hogs
@@ -107,12 +119,15 @@ def get_recommendation(choice: str, answer: str) -> str:
     yes = answer in ("y", "yes")
 
     if choice == "1":
-        # Rule 1: Power problem -> check power cable, outlet, power button.
+        # Rule 1: Power/display problem -> power cable, outlet, button,
+        # and monitor/video cable when the screen is dark or flickering.
         rec = (
             "Recommendation (Power problem):\n"
             "  - Check that the power cable is firmly connected to the computer and the wall outlet.\n"
             "  - Test the outlet with another device (or try a different outlet).\n"
-            "  - Make sure the power button is working (look for lights or fan noise)."
+            "  - Make sure the power button is working (look for lights or fan noise).\n"
+            "  - If the computer is on but the screen is black or flickering, "
+            "check the monitor power and video cable."
         )
         # Follow-up: any lights/fans mean part of the PC is receiving power.
         if yes:
